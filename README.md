@@ -2,13 +2,7 @@
 
 ## install
 
-```bash
-
-wget https://github.com/jrd3n/Speed_test_graph/archive/refs/heads/master.zip
-unzip master
-cd Speed_test_graph-master
-sudo apt-get install python3-venv
-```
+get the right version of python
 
 ```bash
 sudo apt-get update
@@ -21,20 +15,29 @@ sudo make altinstall
 ```
 
 ```bash
+sudo apt-get install python3-venv
+```
+
+
+```bash
+wget https://github.com/jrd3n/Speed_test_graph/archive/refs/heads/master.zip
+unzip master
+cd Speed_test_graph-master
+```
+
+```bash
 python3.11.2 -m venv venv
 source ./venv/bin/activate
 pip install -r requirements.txt
-python3 app.py
-
+~/Speed_test_graph/venv/bin/python app.py
 ```
 
 ```bash
 crontab -e
-
 ```
 
 ```
-*/10 * * * * ~/Speed_test_graph/venv/bin/python ~/Speed_test_graph/speed_test.py
-@reboot sleep 30 && ~/Speed_test_graph/venv/bin/python ~/Speed_test_graph/app.py &
+*/10 * * * * cd ~/Speed_test_graph && ~/Speed_test_graph/venv/bin/python ~/Speed_test_graph/speed_test.py
+@reboot cd ~/Speed_test_graph && sleep 30 && ~/Speed_test_graph/venv/bin/python ~/Speed_test_graph/app.py &
 
 ```
